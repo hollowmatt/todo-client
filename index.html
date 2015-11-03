@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ToDo List Manager</title>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="lib/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="lib/css/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="css/todo.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- put everything after this line -->
+    <section id="todoapp">
+      <header id="header">
+        <h1>
+        	todos
+        </h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+              <form>
+                <input id="new-task" data-bind="value: newTaskText" placeholder="What needs to be done?" />
+                <button data-bind="click: addTask">Add</button>
+              </form>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+        </div>
+      </header>
+    
+      <div class="container">
+        <div class="row">
+          <ul id="todo-list" data-bind="foreach: todos">
+            <li>
+              <div class="view">
+                <input class="todotext" data-bind="value: text"/>
+                <input type="checkbox" data-bind="checked: completed"/>
+                <button class="primary" data-bind="click: $parent.updateTask">update</button> | <button class="delete" data-bind="click: $parent.deleteTask">delete</button>
+                <input hidden data-bind="text: id"/>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+	  <!-- Put JS lib imports after this line -->
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="lib/js/jquery-ui.min.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <script src="lib/js/knockout-3.3.0.js"></script>
+    <!-- Project JS files -->
+    <script src="js/todo.js"></script>
+  </body>
+</html>
